@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  grpc:
+    build:
+      context: ./docker/golang/
+    volumes:
+      - ./:/app/
+    ports:
+      - "9002:9000"
+    networks:
+      - grpc
+    working_dir: "/app"
+    privileged: true
+    tty: true
+
+networks:
+  grpc:
+    driver: bridge
